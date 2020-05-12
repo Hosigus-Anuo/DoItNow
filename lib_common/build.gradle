@@ -1,0 +1,17 @@
+apply from: lib_config
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    deps.each {
+        it.value.each {
+            implementation it.value
+        }
+    }
+
+    compilers.each {
+        it.value.each {
+            kapt it.value
+        }
+    }
+}

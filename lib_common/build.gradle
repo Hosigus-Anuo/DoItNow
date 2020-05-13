@@ -5,7 +5,7 @@ dependencies {
 
     deps.each {
         it.value.each {
-            implementation it.value
+            api it.value
         }
     }
 

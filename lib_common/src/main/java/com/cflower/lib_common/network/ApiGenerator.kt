@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit
 
 object ApiGenerator {
     private const val DEFAULT_TIME_OUT = 30
-    private const val BASE_URL = "" // todo url
+    private const val BASE_URL = "https://doitnow.hosigus.com/" // todo url
 
     private var retrofit: Retrofit
     private var okHttpClient: OkHttpClient

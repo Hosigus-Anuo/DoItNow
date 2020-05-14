@@ -3,7 +3,11 @@ package com.cflower.lib_common.viewmodel
 import androidx.annotation.CallSuper
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.cflower.lib_common.BaseApp
 import com.cflower.lib_common.R
+import com.cflower.lib_common.model.ModelWrapper
+import com.cflower.lib_common.utils.DToast
+import com.cflower.lib_common.utils.extensions.isResponseOK
 import com.cflower.lib_common.utils.extensions.safeSubscribeBy
 import com.cflower.lib_common.utils.extensions.setSchedulers
 import com.cflower.lib_common.viewmodel.event.ProgressDialogEvent
@@ -44,12 +48,52 @@ open class BaseViewModel : ViewModel() {
         disposables.clear()
     }
 
-    protected fun <T> Observable<T>.netRequestSubscribe(
-        onNext: (T) -> Unit = {}
+    protected fun <T> Observable<T>.lifecycleSubscribe(
+        onNext: (T) -> Unit
     ) = setSchedulers()
         .defaultErrorHandler()
-        .safeSubscribeBy(onNext = onNext).
-            lifeCycle()
+        .safeSubscribeBy(onNext = onNext)
+        .lifeCycle()
+
+    protected inline fun <T> Observable<ModelWrapper<T>>.lifecycleWrapperSubscribe(
+        crossinline onNext: (T) -> Unit
+    ) = setSchedulers()
+        .defaultErrorHandler()
+        .safeSubscribeBy {
+            if (it.isResponseOK) {
+                if (it.data == null) {
+                    toastEvent.postValue(R.string.common_default_server_error)
+                } else {
+                    onNext(it.data)
+                }
+            } else {
+                DToast.asyncShow(BaseApp.context, it.message)
+            }
+        }
+        .lifeCycle()
+
+    protected inline fun <T> Observable<ModelWrapper<T>>.lifecycleWrapperSubscribeWithProgress(
+        crossinline onNext: (T) -> Unit
+    ){
+        progressDialogEvent.postValue(ProgressDialogEvent.SHOW_NONCANCELABLE_DIALOG_EVENT)
+        setSchedulers()
+            .defaultErrorHandler()
+            .doOnComplete {
+                progressDialogEvent.postValue(ProgressDialogEvent.DISMISS_DIALOG_EVENT)
+            }
+            .safeSubscribeBy {
+                if (it.isResponseOK) {
+                    if (it.data == null) {
+                        toastEvent.postValue(R.string.common_default_server_error)
+                    } else {
+                        onNext(it.data)
+                    }
+                } else {
+                    DToast.asyncShow(BaseApp.context, it.message)
+                }
+            }
+            .lifeCycle()
+    }
 
     protected fun <T> Observable<T>.defaultErrorHandler(): Observable<T> = doOnError {
         toastEvent.postValue(R.string.common_default_rx_error)

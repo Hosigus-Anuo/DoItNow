@@ -29,6 +29,7 @@ fun <T> Observable<T>.setSchedulers(
 /**
  * 未实现onError时不会抛出[io.reactivex.exceptions.OnErrorNotImplementedException]异常
  */
+@CheckReturnValue
 fun <T> Observable<T>.safeSubscribeBy(
     onError: (Throwable) -> Unit = {},
     onComplete: () -> Unit = {},

@@ -26,7 +26,8 @@ class SplashActivity : BaseViewModelActivity<SplashViewModel>() {
 
         object : CountDownTimer(3000, 1000) {
             override fun onFinish() {
-                finishSplash<MainActivity>()
+                if (!isFinishing)
+                    finishSplash<MainActivity>()
             }
             override fun onTick(millisUntilFinished: Long) {
                 runOnUiThread {

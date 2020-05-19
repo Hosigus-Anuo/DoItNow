@@ -5,7 +5,7 @@ import android.graphics.BitmapFactory
 import android.os.Environment
 import com.cflower.doitnow.net.DownService
 import com.cflower.lib_common.BaseApp
-import com.cflower.lib_common.network.ApiGenerator
+import com.cflower.doitnow.net.ApiGenerator
 import com.cflower.lib_common.utils.LogManager
 import com.cflower.lib_common.utils.extensions.isResponseOK
 import com.cflower.lib_common.utils.extensions.safeSubscribeBy

@@ -1,7 +1,7 @@
 package com.cflower.doitnow.viewmodel
 
 import com.cflower.doitnow.net.AccountService
-import com.cflower.lib_common.network.ApiGenerator
+import com.cflower.doitnow.net.ApiGenerator
 import com.cflower.lib_common.viewmodel.BaseViewModel
 
 /**

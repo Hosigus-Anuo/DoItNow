@@ -1,6 +1,8 @@
-package com.cflower.lib_common.network
+package com.cflower.doitnow.net
 
+import com.cflower.doitnow.App
 import com.cflower.lib_common.BuildConfig
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -14,7 +16,7 @@ import java.util.concurrent.TimeUnit
 
 object ApiGenerator {
     private const val DEFAULT_TIME_OUT = 30
-    private const val BASE_URL = "https://doitnow.hosigus.com/" // todo url
+    private const val BASE_URL = "http://118.89.182.225:5000/"
 
     private var retrofit: Retrofit
     private var okHttpClient: OkHttpClient
@@ -30,18 +32,20 @@ object ApiGenerator {
     }
 
     private fun configureOkHttp(builder: OkHttpClient.Builder): OkHttpClient {
-        builder.connectTimeout(DEFAULT_TIME_OUT.toLong(), TimeUnit.SECONDS)
-        if (BuildConfig.DEBUG) {
-            val logging = HttpLoggingInterceptor()
-            logging.level = HttpLoggingInterceptor.Level.BODY
-            builder.addInterceptor(logging)
-        }
-        return builder.build()
+        return builder.apply {
+            connectTimeout(DEFAULT_TIME_OUT.toLong(), TimeUnit.SECONDS)
+            interceptors().add(Interceptor {
+                it.proceed(it.request().newBuilder().header("Authorization", "basic ${App.userModel.token}").build())
+            })
+            if (BuildConfig.DEBUG) {
+                val logging = HttpLoggingInterceptor()
+                logging.level = HttpLoggingInterceptor.Level.BODY
+                addInterceptor(logging)
+            }
+        }.build()
     }
 
 
     fun <T> getApiService(clazz: Class<T>) = retrofit.create(clazz)
-
-    fun <T> getApiService(retrofit: Retrofit, clazz: Class<T>) = retrofit.create(clazz)
 
 }

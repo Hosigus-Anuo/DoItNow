@@ -3,15 +3,14 @@ package com.cflower.doitnow.ui.activity
 import android.app.Activity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Environment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.cflower.doitnow.App
 import com.cflower.doitnow.R
 import com.cflower.doitnow.viewmodel.SplashViewModel
 import com.cflower.lib_common.ui.BaseViewModelActivity
 import kotlinx.android.synthetic.main.activity_splash.*
-import java.io.File
 
 class SplashActivity : BaseViewModelActivity<SplashViewModel>() {
 
@@ -27,7 +26,7 @@ class SplashActivity : BaseViewModelActivity<SplashViewModel>() {
         object : CountDownTimer(3000, 1000) {
             override fun onFinish() {
                 if (!isFinishing)
-                    finishSplash<MainActivity>()
+                    normalFinishSplash()
             }
             override fun onTick(millisUntilFinished: Long) {
                 runOnUiThread {
@@ -37,7 +36,7 @@ class SplashActivity : BaseViewModelActivity<SplashViewModel>() {
             }
         }.start()
         btn_splash_skip.setOnClickListener {
-            finishSplash<MainActivity>()
+            normalFinishSplash()
         }
     }
 
@@ -50,6 +49,14 @@ class SplashActivity : BaseViewModelActivity<SplashViewModel>() {
                 .into(splash_view)
         }
         viewModel.refreshSplash()
+    }
+
+    private fun normalFinishSplash() {
+        if (App.userModel.isLogin) {
+            finishSplash<MainActivity>()
+        } else {
+            finishSplash<LoginActivity>()
+        }
     }
 
     private inline fun <reified T : Activity>  finishSplash() {

@@ -109,6 +109,7 @@ ext.compilers = compilers
 def build_versions = [:]
 build_versions.min_sdk = 21
 build_versions.target_sdk = 29
+build_versions.compile_sdk = 29
 //app
 build_versions.app_version_code = 1
 build_versions.app_version_name = "Beta 1.0"

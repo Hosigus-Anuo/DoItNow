@@ -12,6 +12,8 @@ class UserModel {
         private set
     val token: String get() = user.token
 
+    val isLogin:Boolean get() = token.isNotEmpty()
+
     private val sp get() = BaseApp.context.sharedPreferences("dit_user")
 
     init {

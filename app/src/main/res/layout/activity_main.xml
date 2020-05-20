@@ -10,8 +10,8 @@
     tools:context=".ui.activity.MainActivity">
 
 
-    <FrameLayout
-        android:id="@+id/frame_main"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -50,22 +50,11 @@
             android:text="@string/rdo_target" />
 
         <RadioButton
-            android:id="@+id/rdo_room"
+            android:id="@+id/rdo_square"
             style="@style/radiobutton_style"
             android:drawableTop="@drawable/bg_main_room"
-            android:text="@string/rdo_room" />
+            android:text="@string/rdo_square" />
 
-        <RadioButton
-            android:id="@+id/rdo_add"
-            style="@style/radiobutton_style"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="30dp"
-            android:button="@null"
-            android:clickable="false"
-            android:visibility="invisible"
-            android:drawableTop="@drawable/add"
-            android:gravity="center" />
 
         <RadioButton
             android:id="@+id/rdo_chat"
@@ -80,15 +69,4 @@
             android:text="@string/rdo_mine" />
     </RadioGroup>
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/image_pub_add"
-        android:layout_width="57dp"
-        android:layout_height="57dp"
-        android:layout_marginBottom="10dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:src="@drawable/add"
-        android:focusable="true" />
 </androidx.constraintlayout.widget.ConstraintLayout>

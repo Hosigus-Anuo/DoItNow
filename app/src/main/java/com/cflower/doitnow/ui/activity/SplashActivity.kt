@@ -55,7 +55,7 @@ class SplashActivity : BaseViewModelActivity<SplashViewModel>() {
         if (App.userModel.isLogin) {
             finishSplash<MainActivity>()
         } else {
-            finishSplash<LoginActivity>()
+            finishSplash<MainActivity>()
         }
     }
 

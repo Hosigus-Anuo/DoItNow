@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.cflower.doitnow.R
 
-class MineFragment :Fragment(){
+class MineFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_main_square,container,false);
+        return inflater.inflate(R.layout.fragment_main_mine, container, false);
     }
+
 }

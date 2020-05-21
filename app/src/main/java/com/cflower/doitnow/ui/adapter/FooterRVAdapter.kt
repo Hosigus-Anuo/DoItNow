@@ -11,12 +11,18 @@ import com.cflower.lib_common.ui.adapter.BaseRVAdapter
 abstract class FooterRVAdapter<D> : BaseRVAdapter<D>(), BaseRVAdapter.FooterHolderCreator {
     abstract fun loadMore()
 
+    protected var footerHolder: FooterHolder? = null
+        private set
+
     protected open fun createFooterView(parent: ViewGroup): View {
         return RvFooter(parent.context)
     }
 
     override fun createFootHolder(parent: ViewGroup): BaseRVAdapter.FooterHolder {
-        return FooterHolder(createFooterView(parent))
+        if (footerHolder == null) {
+            footerHolder = FooterHolder(createFooterView(parent))
+        }
+        return footerHolder!!
     }
 
     inner class FooterHolder(view: View) : BaseRVAdapter.FooterHolder(view) {

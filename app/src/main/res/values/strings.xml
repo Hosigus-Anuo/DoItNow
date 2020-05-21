@@ -1,13 +1,19 @@
 <resources>
     <string name="app_name">DoItNow</string>
+
+    <string name="title_login_name">DO IT NOW</string>
+
     <string name="edt_login_name">用户名</string>
     <string name="edt_login_password">密码</string>
-    <string name="but_login">登录</string>
-    <string name="but_register_login">注册</string>
-    <string name="txt_login_name">DO IT NOW</string>
+
     <string name="rdo_target">目标</string>
     <string name="rdo_square">广场</string>
     <string name="rdo_chat">聊天</string>
     <string name="rdo_mine">我的</string>
-    <string name="but_mine_sign_out">退出登录</string>
+
+    <string name="btn_login">登录</string>
+    <string name="btn_register_login">注册</string>
+    <string name="btn_mine_sign_out">退出登录</string>
+
+    <string name="toast_empty_input_login">用户名或密码为空</string>
 </resources>

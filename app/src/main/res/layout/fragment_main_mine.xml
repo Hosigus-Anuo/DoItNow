@@ -71,7 +71,7 @@
         android:layout_marginStart="22dp"
         android:layout_marginEnd="22dp"
         android:layout_marginTop="40dp"
-        android:text="@string/but_mine_sign_out"
+        android:text="@string/btn_mine_sign_out"
         android:textColor="@color/colorWhite"
         android:background="@drawable/bg_mine_sign_out"
         app:layout_constraintTop_toBottomOf="@id/card_mine"

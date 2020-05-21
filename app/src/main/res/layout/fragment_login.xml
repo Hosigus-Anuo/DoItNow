@@ -79,7 +79,7 @@
         app:layout_constraintTop_toBottomOf="@id/edt_login_password"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/but_login"
+        android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_below="@id/edt_login_password"
@@ -88,7 +88,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/bg_login"
-        android:text="@string/but_login"
+        android:text="@string/btn_login"
         android:textSize="17sp"
         android:textStyle="bold"
         android:textColor="@color/colorWhite"

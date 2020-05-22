@@ -14,10 +14,10 @@ class LoginFragment : BaseViewModelFragment<LoginViewModel>() {
     override val viewModelClass: Class<LoginViewModel> = LoginViewModel::class.java
 
     override fun View.onCreated(savedInstanceState: Bundle?) {
-        edt_login_name.setText(viewModel.userModel.user.userName)
+        edt_name_login.setText(viewModel.userModel.user.userName)
 
         btn_login.setOnClickListener {
-            viewModel.login(edt_login_name.text.toString(), edt_login_password.text.toString())
+            viewModel.login(edt_name_login.text.toString(), edt_pwd_login.text.toString())
         }
 
         viewModel.loginSuccess.observe {

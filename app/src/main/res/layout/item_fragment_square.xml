@@ -21,69 +21,69 @@
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/img_square_portrait"
+            android:id="@+id/img_portrait_article"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/add"
-            app:layout_constraintBottom_toTopOf="@id/txt_square_title"
-            app:layout_constraintEnd_toStartOf="@id/txt_square_name"
+            app:layout_constraintBottom_toTopOf="@id/tv_title_article"
+            app:layout_constraintEnd_toStartOf="@id/tv_name_article"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_square_name"
+            android:id="@+id/tv_name_article"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:ellipsize="end"
             android:maxEms="10"
-            android:text="@string/txt_square_name"
+            android:text="@string/tv_name_article"
             android:textColor="@color/colorBlack"
             android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@id/txt_square_title"
-            app:layout_constraintStart_toEndOf="@id/img_square_portrait"
+            app:layout_constraintBottom_toTopOf="@id/tv_title_article"
+            app:layout_constraintStart_toEndOf="@id/img_portrait_article"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_square_date"
+            android:id="@+id/tv_date_article"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
-            android:text="@string/txt_square_date"
+            android:text="@string/tv_date_axis_article"
             android:textColor="@color/colorText"
             android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@id/txt_square_title"
+            app:layout_constraintBottom_toTopOf="@id/tv_title_article"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_square_title"
+            android:id="@+id/tv_title_article"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@string/txt_square_title"
+            android:text="@string/tv_title_article"
             android:textColor="@color/colorBlack"
             android:textSize="15sp"
-            app:layout_constraintBottom_toTopOf="@id/txt_square_content"
+            app:layout_constraintBottom_toTopOf="@id/tv_content_article"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/img_square_portrait" />
+            app:layout_constraintTop_toBottomOf="@id/img_portrait_article" />
 
         <TextView
-            android:id="@+id/txt_square_content"
+            android:id="@+id/tv_content_article"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text="@string/txt_square_content"
+            android:text="@string/tv_content_article"
             android:textColor="@color/colorText"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_square_title" />
+            app:layout_constraintTop_toBottomOf="@id/tv_title_article" />
 
         <Button
             android:id="@+id/btn_square"
@@ -91,7 +91,7 @@
             android:layout_height="28dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_mine_sign_out"
-            android:text="@string/btn_comment_square"
+            android:text="@string/btn_gather_article"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />

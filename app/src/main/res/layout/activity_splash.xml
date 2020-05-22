@@ -47,6 +47,6 @@
             android:layout_margin="10dp"
             android:background="@drawable/shape_btn_splash_skip"
             android:textColor="#C0C0C0"
-            tools:text="跳过 3" />
+            tools:text="@string/btn_splash_skip" />
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

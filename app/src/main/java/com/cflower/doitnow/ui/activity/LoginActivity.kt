@@ -24,6 +24,6 @@ class LoginActivity : BaseActivity() {
             currentItem = 0
         }
 
-        tab_account.setupWithViewPager(vp_account)
+        tv_account.setupWithViewPager(vp_account)
     }
 }

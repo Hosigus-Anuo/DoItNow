@@ -30,12 +30,12 @@ class MainActivity : BaseActivity() {
     }
 
     private fun setEvent() {
-        radio_group.setOnCheckedChangeListener { _, checkedId ->
+        rg_menu_main.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
-                R.id.rdo_target -> vp_main.currentItem = 0
-                R.id.rdo_square -> vp_main.currentItem = 1
-                R.id.rdo_chat -> vp_main.currentItem = 2
-                R.id.rdo_mine -> vp_main.currentItem = 3
+                R.id.rg_clock_main -> vp_main.currentItem = 0
+                R.id.rb_square_main -> vp_main.currentItem = 1
+                R.id.rb_flag_main -> vp_main.currentItem = 2
+                R.id.rg_mine_main -> vp_main.currentItem = 3
             }
         }
         vp_main.setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
@@ -47,7 +47,7 @@ class MainActivity : BaseActivity() {
             }
 
             override fun onPageSelected(position: Int) =
-                radio_group.check(radio_group.getChildAt(position).id)
+                rg_menu_main.check(rg_menu_main.getChildAt(position).id)
 
             override fun onPageScrollStateChanged(state: Int) {
             }

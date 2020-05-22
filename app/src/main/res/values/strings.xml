@@ -1,36 +1,44 @@
 <resources>
     <string name="app_name">DoItNow</string>
 
-    <string name="title_login_name">DO IT NOW</string>
+    <!--    SplashActivity-->
+    <string name="btn_splash_skip">跳过 3</string>
 
-    <string name="edt_login_name">用户名</string>
-    <string name="edt_login_password">密码</string>
-
-    <string name="rdo_target">目标</string>
-    <string name="rdo_square">广场</string>
-    <string name="rdo_chat">聊天</string>
-    <string name="rdo_mine">我的</string>
-    <string name="but_mine_sign_out">退出登录</string>
-    <string name="txt_mine_pattern">夜间模式</string>
-    <string name="txt_world">我的世界</string>
-    <string name="txt_achievement">我的成就</string>
-    <string name="txt_gather">我的围观</string>
-    <string name="txt_setting">我的设置</string>
-    <string name="txt_pattern">夜间模式</string>
-    <string name="txt_mine_name">无名的今日君</string>
-    <string name="txt_mine_autograph">今日行一事，明日少亿事</string>
-    <string name="txt_search">查找你感兴趣的flag</string>
-    <string name="txt_square_name">今天必行flag君</string>
-    <string name="txt_square_date">2020–5–20 13:14:00</string>
-    <string name="txt_square_title">关于那些不得不说关于美食的事情</string>
-    <string name="txt_square_content">美食是具色香味共美之食，品之能给予自身一种愉悦之情，一种享受之感</string>
-    <string name="tv_type_comment">今日亿事</string>
-    <string name="btn_comment_square">围观flag</string>
-    <string name="tv_enter_comment">快来写点什么评论一下吧</string>
-
+    <!--    LoginActivity And RegisterActivity-->
+    <string name="edt_name_login">用户名</string>
+    <string name="edt_pwd_login">密码</string>
     <string name="btn_login">登录</string>
-    <string name="btn_register_login">注册</string>
-    <string name="btn_mine_sign_out">退出登录</string>
-
+    <string name="btn_register">注册</string>
     <string name="toast_empty_input_login">用户名或密码为空</string>
+
+    <!--    MainActivity Menu-->
+    <string name="rg_clock_main">番茄</string>
+    <string name="rb_square_main">广场</string>
+    <string name="rb_flag_main">目标</string>
+    <string name="rg_mine_main">我的</string>
+
+    <!--    MineFragment-->
+    <string name="tv_name_mine">无名的今日君</string>
+    <string name="tv_autograph_mine">今日行一事，明日少亿事</string>
+    <string name="tv_world_mine">我的世界</string>
+    <string name="tv_achievement_mine">我的成就</string>
+    <string name="tv_gather_mine">我的围观</string>
+    <string name="tv_setting_mine">我的设置</string>
+    <string name="tv_pattern_mine">夜间模式</string>
+    <string name="btn_sign_out_mine">退出登录</string>
+
+    <!--    SquareFragment Article-->
+    <string name="tv_name_article">今天必行flag君</string>
+    <string name="tv_type_article">今日亿事</string>
+    <string name="tv_title_article">关于那些不得不说关于美食的事情</string>
+    <string name="tv_content_article">美食是具色香味共美之食，品之能给予自身一种愉悦之情，一种享受之感</string>
+    <string name="btn_gather_article">围观flag</string>
+    <string name="tv_comment_article">快来写点什么评论一下吧</string>
+
+    <!--    SquareFragment Axis-->
+    <string name="tv_date_axis_article">2020–5–20 13:14:00</string>
+
+    <!--    SquareFragment-->
+    <string name="tv_search_square">查找你感兴趣的flag</string>
+
 </resources>

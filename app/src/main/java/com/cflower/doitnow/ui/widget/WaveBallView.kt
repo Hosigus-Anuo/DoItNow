@@ -6,10 +6,8 @@ import android.animation.PropertyValuesHolder
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
-import android.os.Build
 import android.util.AttributeSet
 import android.view.View
-import androidx.annotation.RequiresApi
 import com.cflower.lib_common.utils.extensions.dp2px
 import kotlin.math.sin
 
@@ -167,7 +165,6 @@ class WaveBallView @JvmOverloads constructor(
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
     @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)

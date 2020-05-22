@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
@@ -16,81 +15,55 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/view_line"
+        android:id="@+id/v_line"
         android:layout_width="match_parent"
         android:layout_height="0.3dp"
         android:background="#33666666"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rg_menu_main"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/radio_group"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <RadioGroup
-        android:id="@+id/radio_group"
+        android:id="@+id/rg_menu_main"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_gravity="bottom|center"
-        android:checkedButton="@id/rdo_target"
+        android:background="@color/colorWhite"
+        android:checkedButton="@id/rg_clock_main"
         android:clipChildren="false"
         android:gravity="center"
-        android:background="@color/colorWhite"
         android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
         <RadioButton
-            android:id="@+id/rdo_target"
-            android:drawableTop="@drawable/bg_main_target"
+            android:id="@+id/rg_clock_main"
             style="@style/radiobutton_style"
-            android:text="@string/rdo_target" />
+            android:drawableTop="@drawable/bg_clock_main"
+            android:text="@string/rg_clock_main" />
 
         <RadioButton
-            android:id="@+id/rdo_square"
+            android:id="@+id/rb_square_main"
             style="@style/radiobutton_style"
-            android:drawableTop="@drawable/bg_main_room"
-            android:text="@string/rdo_square" />
+            android:drawableTop="@drawable/bg_square_main"
+            android:text="@string/rb_square_main" />
 
         <RadioButton
-            android:id="@+id/rdo_add"
+            android:id="@+id/rb_flag_main"
             style="@style/radiobutton_style"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="30dp"
-            android:button="@null"
-            android:clickable="false"
-            android:visibility="invisible"
-            android:drawableTop="@drawable/add"
-            android:gravity="center" />
-
+            android:drawableTop="@drawable/bg_flag_main"
+            android:text="@string/rb_flag_main" />
 
         <RadioButton
-            android:id="@+id/rdo_chat"
-            style="@style/radiobutton_style"
-            android:drawableTop="@drawable/bg_main_chat"
-            android:text="@string/rdo_chat" />
-
-        <RadioButton
-            android:id="@+id/rdo_mine"
+            android:id="@+id/rg_mine_main"
             style="@style/radiobutton_style"
             android:drawableTop="@drawable/bg_main_mine"
-            android:text="@string/rdo_mine" />
+            android:text="@string/rg_mine_main" />
     </RadioGroup>
-
-    <ImageView
-        android:id="@+id/image_pub_add"
-        android:layout_width="57dp"
-        android:layout_height="57dp"
-        android:layout_marginBottom="10dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:src="@drawable/add"
-        android:focusable="true" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

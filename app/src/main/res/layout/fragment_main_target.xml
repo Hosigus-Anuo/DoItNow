@@ -9,7 +9,7 @@
         android:id="@+id/txt_main_target"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/rdo_target"
+        android:text="@string/rg_clock_main"
         android:textColor="@color/colorBackground"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

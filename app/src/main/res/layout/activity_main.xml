@@ -55,6 +55,18 @@
             android:drawableTop="@drawable/bg_main_room"
             android:text="@string/rdo_square" />
 
+        <RadioButton
+            android:id="@+id/rdo_add"
+            style="@style/radiobutton_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="30dp"
+            android:button="@null"
+            android:clickable="false"
+            android:visibility="invisible"
+            android:drawableTop="@drawable/add"
+            android:gravity="center" />
+
 
         <RadioButton
             android:id="@+id/rdo_chat"
@@ -68,5 +80,17 @@
             android:drawableTop="@drawable/bg_main_mine"
             android:text="@string/rdo_mine" />
     </RadioGroup>
+
+    <ImageView
+        android:id="@+id/image_pub_add"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:src="@drawable/add"
+        android:focusable="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="3dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginBottom="3dp"
-    app:cardBackgroundColor="@color/colorWhite"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="0dp"
-    app:contentPaddingBottom="5dp"
-    app:contentPaddingLeft="12dp"
-    app:contentPaddingRight="12dp"
-    app:contentPaddingTop="15dp">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/tb_back_comment"
+        layout="@layout/common_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_flag"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tb_back_comment"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:paddingStart="8dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="5dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_square_portrait"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:src="@drawable/add"
             app:layout_constraintBottom_toTopOf="@id/txt_square_title"
             app:layout_constraintEnd_toStartOf="@id/txt_square_name"
@@ -37,7 +41,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:ellipsize="end"
-            android:maxEms="10"
+            android:maxEms="16"
             android:text="@string/txt_square_name"
             android:textColor="@color/colorBlack"
             android:textSize="14sp"
@@ -46,25 +50,24 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_square_date"
+            android:id="@+id/tv_type_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
-            android:text="@string/txt_square_date"
+            android:text="@string/tv_type_comment"
             android:textColor="@color/colorText"
-            android:textSize="12sp"
+            android:textSize="13sp"
             app:layout_constraintBottom_toTopOf="@id/txt_square_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
             android:id="@+id/txt_square_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:ellipsize="end"
-            android:maxLines="1"
             android:text="@string/txt_square_title"
             android:textColor="@color/colorBlack"
             android:textSize="15sp"
@@ -77,8 +80,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:ellipsize="end"
-            android:maxLines="2"
             android:text="@string/txt_square_content"
             android:textColor="@color/colorText"
             android:textSize="13sp"
@@ -86,18 +87,59 @@
             app:layout_constraintTop_toBottomOf="@id/txt_square_title" />
 
         <Button
-            android:id="@+id/btn_square"
+            android:id="@+id/btn_comment_square"
             android:layout_width="wrap_content"
-            android:layout_height="28dp"
+            android:layout_height="35dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/bg_mine_sign_out"
             android:text="@string/btn_comment_square"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
+            app:layout_constraintTop_toBottomOf="@id/txt_square_content" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_comment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/cl_flag"
+        android:layout_marginTop="5dp" />
 
-</androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_enter_comment"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorGrey" />
+
+
+        <TextView
+            android:id="@+id/tv_enter_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_weight="8"
+            android:background="@drawable/bg_enter_comment"
+            android:paddingStart="18dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="5dp"
+            android:text="@string/tv_enter_comment" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</RelativeLayout>

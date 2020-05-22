@@ -43,4 +43,5 @@ dependencies {
     implementation project(":lib_common")
 
     implementation 'com.github.limuyang2:LPhotoPicker:2.2'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 }

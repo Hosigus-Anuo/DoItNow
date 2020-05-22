@@ -25,13 +25,13 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/add"
-            app:layout_constraintBottom_toTopOf="@id/txt_square_title"
-            app:layout_constraintEnd_toStartOf="@id/txt_square_name"
+            app:layout_constraintBottom_toTopOf="@id/tv_title_square"
+            app:layout_constraintEnd_toStartOf="@id/tv_author_square"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_square_name"
+            android:id="@+id/tv_author_square"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -41,7 +41,7 @@
             android:text="@string/txt_square_name"
             android:textColor="@color/colorBlack"
             android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@id/txt_square_title"
+            app:layout_constraintBottom_toTopOf="@id/tv_title_square"
             app:layout_constraintStart_toEndOf="@id/img_square_portrait"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,12 +54,12 @@
             android:text="@string/txt_square_date"
             android:textColor="@color/colorText"
             android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@id/txt_square_title"
+            app:layout_constraintBottom_toTopOf="@id/tv_title_square"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_square_title"
+            android:id="@+id/tv_title_square"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -83,7 +83,7 @@
             android:textColor="@color/colorText"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_square_title" />
+            app:layout_constraintTop_toBottomOf="@id/tv_title_square" />
 
         <Button
             android:id="@+id/btn_square"

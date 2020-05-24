@@ -7,12 +7,10 @@ import com.cflower.lib_common.ui.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity() {
-    var loginAdapter = LoginFragmentAdapter(supportFragmentManager)
     override val resId: Int = R.layout.activity_login
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
         common_toolbar.initWithSplitLine("DO IT NOW",false)
         initTabLayout()
     }
@@ -20,7 +18,7 @@ class LoginActivity : BaseActivity() {
     private fun initTabLayout() {
         vp_account.apply {
             offscreenPageLimit = 2
-            adapter = loginAdapter
+            adapter = LoginFragmentAdapter(supportFragmentManager)
             currentItem = 0
         }
 

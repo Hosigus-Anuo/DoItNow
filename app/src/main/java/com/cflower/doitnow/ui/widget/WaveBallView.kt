@@ -1,70 +1,47 @@
 package com.cflower.doitnow.ui.widget
 
 import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
-import android.animation.PropertyValuesHolder
-import android.annotation.SuppressLint
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
 import com.cflower.lib_common.utils.extensions.dp2px
-import kotlin.math.sin
+import com.cflower.lib_common.utils.extensions.forEachObject
+import kotlin.math.*
 
 class WaveBallView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
-    private val HANDLER_WHAT_UPDATE: Int = 0x100
-    private var mWaveSpeedA: Int = 0 //波浪A的速度
-    private var mWaveSpeedB: Int = 0//波浪B的速度
-    private var mWaveHeightA: Int = 0//波浪A的振幅
-    private var mWaveHeightB: Int = 0//波浪B的振幅
-    private var mWaveCycleA: Float = 0f//波浪A的周期
-    private var mWaveCycleB: Float = 0f//波浪B的周期
-    private var mOffestA: Int = 0   //波浪A的偏移
-    private var mOffestB: Int = 0 //波浪B的偏移
-    private var mProgress: Int = 0 //当前的进度
-    private var isWaving: Boolean = true;    //是否处于波浪状态
-    private var mWavePaint: Paint = Paint(); //球形遮罩
-    private var mBallBitmap: Bitmap? = null //球形遮罩
-    private var mProgressAnimator: ObjectAnimator = ObjectAnimator() // 进度增长动画
-    private var mWaveStopAnimator: ObjectAnimator = ObjectAnimator() //波浪停止动画
+    private var mProgressAnimator: ValueAnimator = ObjectAnimator() // 进度增长动画
+    private lateinit var mBallBitmap: Bitmap //球形遮罩
+    private lateinit var edgeRectF: RectF
 
+    private val porterDuffXfermode = PorterDuffXfermode(PorterDuff.Mode.DST_IN)
+    private val mWavePaint: Paint = Paint() //球形遮罩
+    private val edgePaint = Paint()
+    private val waves = listOf(Wave(), Wave())
 
-    private fun init() {
-        mWavePaint = Paint()
-        mWavePaint.color = Color.argb(60, 255, 182, 193)
-        mWavePaint.isFilterBitmap = true
-    }
+    var mProgress: Int = 0 //当前的进度
+        private set
 
-    //获取进度
-    fun getProgress(): Int {
-        return mProgress
-    }
-
-    //设置进度
-    private fun setProgress(progress: Int) {
-        mProgress = progress
-    }
-
-    fun getWaveHeightA(): Int {
-        return mWaveHeightA
-    }
-
-    fun setWaveHeightA(waveHeightA: Int) {
-        mWaveHeightA = waveHeightA
-    }
-
-    fun getWaveHeightB(): Int {
-        return mWaveHeightB
-    }
-
-    fun setWaveHeightB(waveHeightB: Int) {
-        mWaveHeightB = waveHeightB
+    init {
+        mWavePaint.apply {
+            color = Color.argb(168, 255, 182, 193)
+            isFilterBitmap = true
+        }
+        edgePaint.apply {
+            strokeWidth = 1f
+            color = Color.argb(255, 255, 182, 193)
+            style = Paint.Style.STROKE
+        }
     }
 
     fun startProgress(progress: Int) {
-        startProgress(progress, 1000, 0)
+        startProgress(progress, 1500, 0)
     }
 
     //设置进度，并且以动画的形式上涨到该进度
@@ -72,149 +49,100 @@ class WaveBallView @JvmOverloads constructor(
     //duration:持续时间
     //delay:延时
 
-    private fun startProgress(progress: Int, duration: Long, delay: Long) {
+    fun startProgress(progress: Int, duration: Long, delay: Long) {
         if (mProgressAnimator.isRunning) {
             mProgressAnimator.cancel()
         }
-        if (mWaveStopAnimator.isRunning) {
-            mWaveStopAnimator.cancel()
+        waves.forEachObject {
+            speed = speedMAX * max(abs(mProgress - progress), 50) / 100f
         }
-        isWaving = true
-        mProgressAnimator = ObjectAnimator.ofInt(this, "Progress", progress)
-        mProgressAnimator.duration = duration
-        mProgressAnimator.startDelay = delay
-        mProgressAnimator.addListener(object : Animator.AnimatorListener {
-            override fun onAnimationStart(p0: Animator?) {
-
+        mProgressAnimator = ValueAnimator.ofInt(mProgress, progress)
+            .setDuration(duration)
+            .apply {
+                interpolator = AccelerateDecelerateInterpolator()
+                startDelay = delay
+                addUpdateListener {
+                    mProgress = it.animatedValue as Int
+                    val p = 1 - abs(1 - 2 * it.animatedFraction)
+                    waves.forEachObject {
+                        offset += speed * p
+                        height = heightMAX * p
+                    }
+                    postInvalidate()
+                }
+                start()
             }
-
-            override fun onAnimationEnd(p0: Animator?) {
-                mWaveStopAnimator.start()
-            }
-
-            override fun onAnimationCancel(p0: Animator?) {
-
-            }
-
-            override fun onAnimationRepeat(p0: Animator?) {
-
-            }
-        }
-        )
-        mProgressAnimator.addUpdateListener {
-            mOffestA += mWaveSpeedA
-            mOffestB += mWaveSpeedB
-            invalidate()
-        }
-        mProgressAnimator.start()
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         if (w > 0 && h > 0) {
-            mWaveSpeedA = w / 10
-            mWaveSpeedB = w / 17
-            mWaveHeightA = context.dp2px(10F)
-            mWaveHeightB = context.dp2px(5F)
-            if (h / 10 < mWaveHeightA) {
-                mWaveHeightA = h / 10
-                mWaveHeightB = h / 20
+            edgeRectF = RectF(0F, 0F, w.toFloat(), h.toFloat())
+            waves[0].apply {
+                speedMAX = w / 10f
+                heightMAX = min(h / 6f, context.dp2px(15F).toFloat())
+                cycle = (3 * PI / w).toFloat()
             }
-            initStopAnimator(mWaveHeightA, mWaveHeightB)
-            mWaveCycleA = (3 * Math.PI / w).toFloat()
-            mWaveCycleB = (4 * Math.PI / w).toFloat()
+
+            waves[1].apply {
+                speedMAX = w / 17f
+                heightMAX = min(h / 15f, context.dp2px(6f).toFloat())
+                cycle = (4 * PI / w).toFloat()
+            }
 
             val mBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
 
-            val canvas: Canvas = Canvas(mBitmap)
-            val ball: RectF = RectF(0F, 0F, w.toFloat(), h.toFloat())
+            val canvas = Canvas(mBitmap)
+            val ball = RectF(0F, 0F, w.toFloat(), h.toFloat())
             canvas.drawOval(ball, mWavePaint)
             mBallBitmap = mBitmap
         }
     }
 
-    private fun initStopAnimator(waveHeightA: Int, waveHeightB: Int) {
-        val holderA: PropertyValuesHolder = PropertyValuesHolder.ofInt("WaveHeightA", 0)
-        val holderB: PropertyValuesHolder = PropertyValuesHolder.ofInt("WaveHeightB", 0)
-        mWaveStopAnimator = ObjectAnimator.ofPropertyValuesHolder(this, holderA, holderB)
-        mWaveStopAnimator.duration = 1000
-        mWaveStopAnimator.addListener(object : Animator.AnimatorListener {
-            override fun onAnimationStart(p0: Animator?) {
 
-            }
-
-            override fun onAnimationEnd(p0: Animator?) {
-                isWaving = false
-                mWaveHeightA = waveHeightA
-                mWaveHeightB = waveHeightB
-            }
-
-            override fun onAnimationCancel(p0: Animator?) {
-                mWaveHeightA = waveHeightA
-                mWaveHeightB = waveHeightB
-            }
-
-            override fun onAnimationRepeat(p0: Animator?) {
-
-            }
-        })
-        mWaveStopAnimator.addUpdateListener {
-            mOffestA += mWaveSpeedA
-            mOffestB += mWaveSpeedB
-            invalidate()
-        }
-    }
-
-    @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        if (height > 0 && width > 0 && canvas != null) {
-            val paint: Paint = Paint()
-            paint.color = Color.argb(60, 255, 182, 193)
-            paint.style = Paint.Style.STROKE
-            val edge: RectF = RectF(0F, 0F, width.toFloat(), height.toFloat())
-            canvas.drawArc(edge, 0F, 360F, false, paint)
-            canvas.drawColor(Color.TRANSPARENT)
-            val sc: Int = canvas.saveLayer(
-                0F,
-                0F,
-                width.toFloat(),
-                height.toFloat(),
-                null,
-                Canvas.ALL_SAVE_FLAG
-            )
-            var index = 0
-            if (isWaving) {
-                for (i in 0..width) {
-                    canvas.drawLine(
-                        i.toFloat(),
-                        getWaveY(i, mOffestA, mWaveHeightA, mWaveCycleA).toFloat(),
-                        i.toFloat(),
-                        height.toFloat(),
-                        mWavePaint
-                    )
-                    canvas.drawLine(
-                        i.toFloat(), getWaveY(i, mOffestA, mWaveHeightA, mWaveCycleA).toFloat(),
-                        i.toFloat(),
-                        height.toFloat(),
-                        mWavePaint
-                    )
+        if (height <= 0 || width <= 0 || canvas == null
+            || !this::edgeRectF.isInitialized || !this::mBallBitmap.isInitialized
+        ) {
+            return
+        }
+
+        canvas.drawColor(Color.TRANSPARENT)
+        canvas.drawArc(edgeRectF, 0F, 360F, false, edgePaint)
+
+        val sc: Int = canvas.saveLayer(0F, 0F, width.toFloat(), height.toFloat(), null)
+
+        if (mProgressAnimator.isRunning) {
+            repeat(width) {
+                waves.forEach { w ->
+                    val waveY = getWaveY(it, w).toFloat()
+                    canvas.drawLine(it.toFloat(), waveY, it.toFloat(), height.toFloat(), mWavePaint)
                 }
             }
-            if (!isWaving) {
-                val mHeight: Float = (1 - mProgress / 100.0F) * height
-                canvas.drawRect(0F, mHeight, width.toFloat(), height.toFloat(), mWavePaint)
+        } else {
+            val mHeight: Float = (1 - mProgress / 100.0F) * height
+            waves.forEach {
                 canvas.drawRect(0F, mHeight, width.toFloat(), height.toFloat(), mWavePaint)
             }
-            mWavePaint.xfermode = PorterDuffXfermode(PorterDuff.Mode.DST_IN)
-            mBallBitmap?.let { canvas.drawBitmap(it, 0F, 0F, mWavePaint) }
-            mWavePaint.xfermode = null
-            canvas.restoreToCount(sc)
         }
+        mWavePaint.xfermode = porterDuffXfermode
+        canvas.drawBitmap(mBallBitmap, 0F, 0F, mWavePaint)
+        mWavePaint.xfermode = null
+        canvas.restoreToCount(sc)
     }
 
-    private fun getWaveY(x: Int, offest: Int, waveHeight: Int, waveCycle: Float): Double {
-        return waveHeight * sin(waveCycle * (x + offest)) + (1 - mProgress / 100.0) * height
+    private fun getWaveY(x: Int, w: Wave): Double {
+        return w.height * sin(w.cycle * (x + w.offset)) + (1 - mProgress / 100.0) * height
     }
 
+    private class Wave(
+        var cycle: Float = 0f,//波浪的周期
+        var offset: Float = 0f, //波浪的偏移
+        var height: Float = 0f,//波浪的当前高度
+        var speed: Float = 0f,//波浪的当前速度
+
+        var heightMAX: Float = 0f,//波浪的振幅
+        var speedMAX: Float = 0f//波浪的MAX速度
+    )
 }

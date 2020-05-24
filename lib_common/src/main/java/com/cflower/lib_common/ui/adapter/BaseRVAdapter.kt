@@ -27,7 +27,7 @@ abstract class BaseRVAdapter<D> : RecyclerView.Adapter<RecyclerView.ViewHolder>(
         notifyItemRangeInserted(datas.size, dataList.size)
     }
 
-    fun refresh(dataList: List<D>) {
+    fun refresh(dataList: List<D> = emptyList()) {
         datas.clear()
         appendData(dataList)
     }

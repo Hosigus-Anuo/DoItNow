@@ -8,7 +8,7 @@ import retrofit2.http.POST
 import io.reactivex.Observable
 
 interface LoginService {
-    @POST("http://118.89.182.225/api/v1/auth/login")
+    @POST("/auth/login")
     @FormUrlEncoded
     fun login(
         @Field("username") userName:String,

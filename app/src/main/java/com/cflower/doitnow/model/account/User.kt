@@ -9,9 +9,9 @@ data class User(
     @SerializedName("username")
     val userName: String = "",
     val token: String = "",
+    val achievement: Achievement? = null,
     @SerializedName("selfdes")
     val autograph: String = "",
-    val achievement: Achievement,
     @SerializedName("avatar")
     val avatar: String = ""
 )

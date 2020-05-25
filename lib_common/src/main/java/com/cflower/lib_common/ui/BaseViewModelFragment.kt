@@ -21,9 +21,7 @@ import com.cflower.lib_common.viewmodel.event.ProgressDialogEvent
 /**
  * Create By Hosigus at 2020/5/21
  */
-abstract class BaseViewModelFragment<T : BaseViewModel> : Fragment() {
-    @get:LayoutRes
-    abstract val layoutRes: Int
+abstract class BaseViewModelFragment<T : BaseViewModel> : BaseFragment() {
 
     protected lateinit var viewModel: T
 
@@ -78,21 +76,6 @@ abstract class BaseViewModelFragment<T : BaseViewModel> : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(layoutRes,container,false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        view.onCreated(savedInstanceState)
-    }
-
-    protected abstract fun View.onCreated(savedInstanceState: Bundle?)
-
     protected open fun getViewModelFactory(): ViewModelProvider.Factory? = null
 
     inline fun <T> LiveData<T>.observe(crossinline onChange: (T?) -> Unit) =
@@ -111,10 +94,4 @@ abstract class BaseViewModelFragment<T : BaseViewModel> : Fragment() {
         }
     }
 
-    inline fun <reified T : Activity> startActivity(vararg params: Pair<String, Any?>) {
-        startActivity(
-            Intent(activity, T::class.java)
-                .fillIntentArguments(params)
-        )
-    }
 }

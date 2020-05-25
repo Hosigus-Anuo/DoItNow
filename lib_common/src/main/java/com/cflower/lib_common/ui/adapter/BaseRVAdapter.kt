@@ -22,6 +22,10 @@ abstract class BaseRVAdapter<D> : RecyclerView.Adapter<RecyclerView.ViewHolder>(
 
     protected abstract fun View.bindData(position: Int, data: D)
 
+    protected open fun getDataAt(position: Int): D {
+        return datas[position]
+    }
+
     fun appendData(dataList: List<D>) {
         datas.addAll(dataList)
         notifyItemRangeInserted(datas.size, dataList.size)

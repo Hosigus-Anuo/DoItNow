@@ -32,10 +32,13 @@ abstract class BaseFragment : Fragment() {
 
     protected abstract fun View.onCreated(savedInstanceState: Bundle?)
 
-    inline fun <reified T : Activity> startActivity(vararg params: Pair<String, Any?>) {
+    inline fun <reified T : Activity> startActivity(isFinish:Boolean = false, vararg params: Pair<String, Any?>) {
         startActivity(
             Intent(activity, T::class.java)
                 .fillIntentArguments(params)
         )
+        if (isFinish){
+            activity?.finish()
+        }
     }
 }

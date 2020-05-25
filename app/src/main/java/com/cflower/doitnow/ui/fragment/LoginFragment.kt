@@ -28,6 +28,8 @@ class LoginFragment : BaseViewModelFragment<LoginViewModel>() {
                 }
             }
         }
+
+
     }
 
 }

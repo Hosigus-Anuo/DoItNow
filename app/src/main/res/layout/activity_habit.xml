@@ -146,7 +146,7 @@
         android:paddingBottom="8dp"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        android:hint="@string/edt_content_habit"
+        android:gravity="start"
         android:layout_marginTop="5dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
@@ -178,11 +178,21 @@
             android:layout_alignParentEnd="true"/>
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/tv_info_habit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_info_habit"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:textSize="17sp"/>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_accomplish_habit"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/bg_mine_sign_out"

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import com.cflower.doitnow.R
 import com.cflower.doitnow.ui.adapter.MainViewPagerAdapter
-import com.cflower.doitnow.ui.fragment.ChatFragment
+import com.cflower.doitnow.ui.fragment.FlagFragment
 import com.cflower.doitnow.ui.fragment.MineFragment
 import com.cflower.doitnow.ui.fragment.SquareFragment
 import com.cflower.doitnow.ui.fragment.TargetFragment
@@ -23,7 +23,7 @@ class MainActivity : BaseActivity() {
     private fun setFragment() {
         val fmTarget = TargetFragment()
         val fmSquare = SquareFragment()
-        val fmChat = ChatFragment()
+        val fmChat = FlagFragment()
         val fmMine = MineFragment()
         val list = listOf(fmTarget, fmSquare, fmChat, fmMine)
         vp_main.adapter = MainViewPagerAdapter(list, supportFragmentManager)

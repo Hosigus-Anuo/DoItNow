@@ -18,18 +18,6 @@ class TargetFragment : Fragment() {
         return inflater.inflate(R.layout.activity_time, container, false);
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        start.setOnClickListener {
-            wave_ball_progress.start(10000L)
-        }
-        pause.setOnClickListener {
-            wave_ball_progress.pause()
-        }
-        stop.setOnClickListener {
-            wave_ball_progress.stop()
-        }
-    }
 
 
 }

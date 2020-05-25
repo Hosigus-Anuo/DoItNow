@@ -9,4 +9,8 @@
     <color name="colorText">#95353232</color>
     <color name="colorBackground">#ff4b55</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorFloatingToday">#7dc5eb</color>
+    <color name="colorFloatingHabit">#f3ca7e</color>
+    <color name="colorFloatingTarget">#e8989a</color>
+
 </resources>

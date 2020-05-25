@@ -41,4 +41,48 @@
     <!--    SquareFragment-->
     <string name="tv_search_square">查找你感兴趣的flag</string>
 
+    <!--    ClockFragment-->
+    <string name="tv_event_clock">+ 添加事件</string>
+    <string name="tv_time_clock">25:00</string>
+    <string name="btn_one_clock">25min</string>
+    <string name="btn_two_clock">50min</string>
+    <string name="btn_three_clock">75min</string>
+    <string name="btn_operate_clock">开始</string>
+
+    <!--    FlagFragment-->
+    <string name="tv_name_flag">DO IT NOW</string>
+    <string name="tv_content_flag">每日阅读半小时</string>
+
+    <!--    MineFragment MyWorld-->
+    <string name="tv_title_world">我的世界</string>
+    <string name="tv_change_name_world">修改用户名</string>
+    <string name="tv_change_password_world">修改密码</string>
+    <string name="tv_change_avatar_world">修改头像</string>
+    <string name="tv_change_autograph_world">修改签名</string>
+
+    <!--MineFragment Gather-->
+    <string name="tv_title_gather">我的围观</string>
+
+    <!--    FlagFragment -->
+    <string name="tv_target_flag">目标</string>
+
+    <!--    TodayActivity-->
+    <string name="btn_cancel_today">取消</string>
+    <string name="tv_title_today">今日待办</string>
+    <string name="tv_title_habit">习惯21日</string>
+    <string name="tv_name_today">待办事件名称：</string>
+    <string name="tv_name_habit">习惯名称：</string>
+    <string name="edt_name_today">今日行一事，明日少亿事</string>
+    <string name="edt_name_habit">21日习惯的养成手册</string>
+    <string name="tv_tag_today">事件标签：</string>
+    <string name="tv_tag_flag">学习</string>
+    <string name="tv_study_tag_flag">学习</string>
+    <string name="tv_review_tag_flag">复习</string>
+    <string name="tv_work_tag_flag">工作</string>
+    <string name="tv_excise_tag_flag">锻炼</string>
+    <string name="tv_hint_content_today">待办事件内容：</string>
+    <string name="tv_hint_content_habit">习惯养成内容：</string>
+    <string name="btn_accomplish_flag">完 成</string>
+    <string name="tv_publish_flag">公开到广场</string>
+    <string name="edt_content_habit">在21日打败拖延，慢慢习惯自律的生活，养成的不只是习惯，还是一个不败懒散的英雄</string>
 </resources>

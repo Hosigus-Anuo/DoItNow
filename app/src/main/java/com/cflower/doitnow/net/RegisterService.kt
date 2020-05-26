@@ -8,7 +8,7 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 interface RegisterService {
-    @POST("http://118.89.182.225/api/v1/auth/register")
+    @POST("/auth/register")
     @FormUrlEncoded
     fun register(
         @Field("username") userName:String,

@@ -33,8 +33,12 @@ class LoginViewModel : BaseViewModel() {
         ApiGenerator.getApiService(AccountService::class.java).login()
             .subscribeOn(Schedulers.io())
             .unsubscribeOn(Schedulers.io())
-            .defaultErrorHandler()
             .doOnError {
+                if (it.message?.contains("401") == true) {
+                    toastEvent.postValue(R.string.toast_fail_login)
+                } else {
+                    toastEvent.postValue(R.string.common_default_rx_error)
+                }
                 progressDialogEvent.postValue(ProgressDialogEvent.DISMISS_DIALOG_EVENT)
             }
             .flatMap {
@@ -56,7 +60,6 @@ class LoginViewModel : BaseViewModel() {
                     it.data?.let { u -> userModel.bind(u) }
                 }
             }.observeOn(AndroidSchedulers.mainThread())
-            .defaultErrorHandler()
             .doOnComplete {
                 progressDialogEvent.postValue(ProgressDialogEvent.DISMISS_DIALOG_EVENT)
             }

@@ -67,6 +67,13 @@ abstract class BaseActivity : AppCompatActivity() {
         )
     }
 
+    inline fun <reified T : Activity> startActivityFinish(
+        vararg params: Pair<String, Any?>
+    ) {
+        startActivity<T>(*params)
+        finish()
+    }
+
     protected fun DToolbar.initWithSplitLine(
         title: String,
         withSplitLine: Boolean = true,

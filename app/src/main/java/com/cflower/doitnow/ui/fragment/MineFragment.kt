@@ -1,13 +1,11 @@
 package com.cflower.doitnow.ui.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import com.cflower.doitnow.App
 import com.cflower.doitnow.R
+import com.cflower.doitnow.ui.activity.LoginActivity
 import com.cflower.doitnow.ui.activity.WorldActivity
-import com.cflower.doitnow.viewmodel.FlagViewModel
 import com.cflower.doitnow.viewmodel.MineViewModel
 import com.cflower.lib_common.ui.BaseViewModelFragment
 import kotlinx.android.synthetic.main.fragment_main_mine.*
@@ -33,6 +31,11 @@ class MineFragment : BaseViewModelFragment<MineViewModel>() {
          }
         cl_setting_mine.setOnClickListener {
             viewModel.showError()
+        }
+
+        btn_sign_out_mine.setOnClickListener {
+            App.userModel.logout()
+            startActivity<LoginActivity>(true)
         }
     }
 

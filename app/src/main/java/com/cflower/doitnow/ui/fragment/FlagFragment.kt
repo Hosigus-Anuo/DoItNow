@@ -20,11 +20,11 @@ class FlagFragment : BaseViewModelFragment<FlagViewModel>() {
 
     private fun setEvent() {
         fab_add.setOnClickListener {
-            if (rl_tag_flag.isVisible) {
-                rl_tag_flag.isVisible = false
+            if (rl_menu_content_flag.isVisible) {
+                rl_menu_content_flag.isVisible = false
                 fab_add.setImageResource(R.drawable.add_float)
             } else {
-                rl_tag_flag.isVisible = true
+                rl_menu_content_flag.isVisible = true
                 fab_add.setImageResource(R.drawable.flag_cancel)
             }
         }

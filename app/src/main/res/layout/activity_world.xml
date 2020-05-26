@@ -33,6 +33,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_change_password"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="5dp">
@@ -60,6 +61,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_change_avatar"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="5dp">
@@ -87,6 +89,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_change_autograph"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="5dp">

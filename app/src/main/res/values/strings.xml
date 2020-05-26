@@ -12,6 +12,7 @@
     <string name="toast_empty_input_login">用户名或密码为空</string>
     <string name="toast_success_register">注册成功，正在处理信息</string>
 
+
     <!--    MainActivity Menu-->
     <string name="rg_clock_main">番茄</string>
     <string name="rb_square_main">广场</string>
@@ -60,6 +61,12 @@
     <string name="tv_change_password_world">修改密码</string>
     <string name="tv_change_avatar_world">修改头像</string>
     <string name="tv_change_autograph_world">修改签名</string>
+    <string name="tv_title_autograph">修改签名</string>
+    <string name="tv_hint_autograph">请输入新的签名：</string>
+    <string name="btn_autograph">确认修改</string>
+    <string name="tv_new_password">输入新密码</string>
+    <string name="tv_check_new_password">再次输入</string>
+    <string name="tv_title_password">修改密码</string>
 
     <!--MineFragment Gather-->
     <string name="tv_title_gather">我的围观</string>
@@ -88,5 +95,6 @@
     <string name="tv_publish_flag">公开到广场</string>
     <string name="edt_content_habit">在21日打败拖延，慢慢习惯自律的生活，养成的不只是习惯，还是一个不败懒散的英雄</string>
     <string name="tv_info_habit">*习惯养成21天，需要持续打卡21天，养成一个习惯</string>
+
 
 </resources>

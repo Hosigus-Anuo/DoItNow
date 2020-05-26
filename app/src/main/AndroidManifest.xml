@@ -10,11 +10,14 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.HabitActivity"></activity>
+        <activity android:name=".ui.activity.PasswordActivity"></activity>
+        <activity android:name=".ui.activity.AutoGraphActivity" />
+        <activity android:name=".ui.activity.WorldActivity" />
+        <activity android:name=".ui.activity.HabitActivity" />
         <activity android:name=".ui.activity.TodayActivity" />
         <activity android:name=".ui.activity.LoginActivity" />
         <activity

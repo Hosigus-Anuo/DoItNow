@@ -52,7 +52,7 @@
             android:id="@+id/rl_menu_content_flag"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_target_flag"
@@ -61,7 +61,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="20dp"
-                android:layout_marginBottom="100dp"
+                android:layout_marginBottom="140dp"
                 android:src="@drawable/target_float"
                 app:backgroundTint="@color/colorFloatingTarget"
                 app:fabSize="normal" />
@@ -100,7 +100,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="65dp"
             android:backgroundTint="@color/colorBackground"
             android:src="@drawable/add_float"
             app:fabSize="normal"

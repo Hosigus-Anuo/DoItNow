@@ -32,7 +32,7 @@ class LoginActivity : BaseViewModelActivity<LoginViewModel>() {
             offscreenPageLimit = 2
             adapter = SimpleFragmentAdapter(
                 listOf("登录", "注册"),
-                listOf<Fragment>(RegisterFragment(), LoginFragment()),
+                listOf<Fragment>(LoginFragment(), RegisterFragment()),
                 supportFragmentManager
             )
             currentItem = 0

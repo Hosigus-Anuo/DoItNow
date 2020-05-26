@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
 
 object ApiGenerator {
     private const val DEFAULT_TIME_OUT = 30
-    private const val BASE_URL = "http://118.89.182.225:5000/"
+    private const val BASE_URL = "http://118.89.182.225/api/v1/"
 
     private var retrofit: Retrofit
     private var okHttpClient: OkHttpClient
@@ -35,7 +35,12 @@ object ApiGenerator {
         return builder.apply {
             connectTimeout(DEFAULT_TIME_OUT.toLong(), TimeUnit.SECONDS)
             interceptors().add(Interceptor {
-                it.proceed(it.request().newBuilder().header("Authorization", "basic ${App.userModel.token}").build())
+                it.proceed(
+                    it.request().newBuilder().header(
+                        "Authorization",
+                        "Basic ${App.userModel.token.token}"
+                    ).build()
+                )
             })
             if (BuildConfig.DEBUG) {
                 val logging = HttpLoggingInterceptor()

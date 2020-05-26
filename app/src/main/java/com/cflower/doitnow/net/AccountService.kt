@@ -20,11 +20,10 @@ interface AccountService {
         @Field("password") pwd: String
     ): Observable<ModelWrapper<Any>>
 
-    @POST("auth/login")
-    @FormUrlEncoded
+    @GET("auth/token")
     fun login(): Observable<ModelWrapper<Token>>
 
-    @GET("uCenter/userInfo")
+    @POST("uCenter/userInfo")
     @FormUrlEncoded
     fun getUser(
         @Field("username") userName: String

@@ -16,7 +16,9 @@ class UserModel {
     var token: Token
         get() {
             return if (field.duration < 1) {
-                tempToken
+                val t = tempToken
+                tempToken = Token()
+                t
             } else {
                 field
             }
@@ -52,19 +54,29 @@ class UserModel {
 
     fun login(name: String, pwd: String) {
         user = user.copy(userName = name)
-        tempToken = Token(0, Base64.encodeToString("$name:$pwd".toByteArray(), Base64.DEFAULT))
+        tempToken = Token(0, Base64.encodeToString("$name:$pwd".toByteArray(), Base64.NO_WRAP))
     }
 
     fun updateToken(token: Token) {
-        this.token = token
-        sp.editor {
-            putString("token", token.token)
-            putInt("token_duration", token.duration)
-        }
+        this.token = Token(
+            token.duration,
+            Base64.encodeToString("${token.token}:unused".toByteArray(), Base64.NO_WRAP)
+        )
+    }
+
+    fun logout() {
+        user = User(user.userName)
+        token = Token()
+
+        save()
     }
 
     fun bind(user: User) {
         this.user = user
+        save()
+    }
+
+    private fun save() {
         sp.editor {
             putString("user_name", user.userName)
             putString("autograph", user.autograph)
@@ -74,6 +86,9 @@ class UserModel {
             putInt("persist", user.achievement.persist)
             putInt("time", user.achievement.time)
             putInt("target", user.achievement.target)
+
+            putString("token", token.token)
+            putInt("token_duration", token.duration)
         }
     }
 }

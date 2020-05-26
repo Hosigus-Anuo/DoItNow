@@ -29,10 +29,10 @@ class FlagFragment : BaseViewModelFragment<FlagViewModel>() {
             }
         }
         fab_today_flag.setOnClickListener {
-            startActivity<HabitActivity>(true)
+            startActivity<TodayActivity>(true)
         }
         fab_habit_flag.setOnClickListener {
-            startActivity<TodayActivity>(true)
+            startActivity<HabitActivity>(true)
         }
         fab_target_flag.setOnClickListener {
             viewModel.showError()

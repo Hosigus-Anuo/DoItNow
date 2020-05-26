@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.75"/>
 
     <com.cflower.doitnow.ui.widget.WaveBallView
         android:id="@+id/wbv_time_clock"
@@ -33,7 +33,7 @@
         android:layout_below="@id/wbv_time_clock"
         android:text="start"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/wbv_time_clock" />
+        app:layout_constraintTop_toBottomOf="@id/wbv_time_clock"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/pause"
@@ -43,7 +43,7 @@
         android:layout_centerHorizontal="true"
         android:text="pause"
         app:layout_constraintStart_toEndOf="@id/start"
-        app:layout_constraintTop_toBottomOf="@id/wbv_time_clock" />
+        app:layout_constraintTop_toBottomOf="@id/wbv_time_clock"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/stop"
@@ -53,8 +53,7 @@
         android:layout_alignParentEnd="true"
         android:text="stop"
         app:layout_constraintStart_toEndOf="@id/pause"
-        app:layout_constraintTop_toBottomOf="@id/wbv_time_clock" />
-
+        app:layout_constraintTop_toBottomOf="@id/wbv_time_clock"/>
     <androidx.appcompat.widget.AppCompatSeekBar
         android:id="@+id/sb_test"
         android:layout_width="200dp"
@@ -73,11 +72,11 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
-        android:gravity="center"
         android:paddingStart="10dp"
-        android:paddingTop="5dp"
         android:paddingEnd="10dp"
+        android:paddingTop="5dp"
         android:paddingBottom="5dp"
+        android:gravity="center"
         android:text="@string/tv_event_clock"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@id/wbv_time_clock"
@@ -88,16 +87,16 @@
         android:id="@+id/tv_time_clock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
         android:layout_marginTop="30dp"
+        android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:text="@string/tv_time_clock"
         android:textColor="@color/colorText"
-        android:textSize="35sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="35sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/wbv_time_clock" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wbv_time_clock"/>
 
 
     <!--    <TextView-->
@@ -165,8 +164,8 @@
         android:layout_marginEnd="50dp"
         android:background="@color/colorGrey"
         android:text="@string/btn_operate_clock"
-        app:layout_constraintBottom_toTopOf="@id/gl_start"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/gl_start" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

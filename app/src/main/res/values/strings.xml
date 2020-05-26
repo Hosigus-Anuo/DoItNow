@@ -66,6 +66,7 @@
 
     <!--    FlagFragment -->
     <string name="tv_target_flag">目标</string>
+    <string name="toast_show_error">抱歉，此地还在开发中</string>
 
     <!--    TodayActivity-->
     <string name="btn_cancel_today">取消</string>
@@ -86,4 +87,6 @@
     <string name="btn_accomplish_flag">完 成</string>
     <string name="tv_publish_flag">公开到广场</string>
     <string name="edt_content_habit">在21日打败拖延，慢慢习惯自律的生活，养成的不只是习惯，还是一个不败懒散的英雄</string>
+    <string name="tv_info_habit">*习惯养成21天，需要持续打卡21天，养成一个习惯</string>
+
 </resources>

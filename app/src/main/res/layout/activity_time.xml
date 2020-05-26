@@ -42,7 +42,7 @@
         android:layout_below="@id/wbv_time_clock"
         android:layout_centerHorizontal="true"
         android:text="pause"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/start"
         app:layout_constraintTop_toBottomOf="@id/wbv_time_clock" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -52,7 +52,7 @@
         android:layout_below="@id/wbv_time_clock"
         android:layout_alignParentEnd="true"
         android:text="stop"
-        app:layout_constraintStart_toEndOf="@id/start"
+        app:layout_constraintStart_toEndOf="@id/pause"
         app:layout_constraintTop_toBottomOf="@id/wbv_time_clock" />
 
     <androidx.appcompat.widget.AppCompatSeekBar

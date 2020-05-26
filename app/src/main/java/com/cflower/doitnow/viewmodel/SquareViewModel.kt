@@ -3,8 +3,6 @@ package com.cflower.doitnow.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.cflower.doitnow.model.square.Article
-import com.cflower.doitnow.net.ApiGenerator
-import com.cflower.doitnow.net.LoginService
 import com.cflower.lib_common.viewmodel.BaseViewModel
 
 /**

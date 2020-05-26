@@ -10,6 +10,7 @@
     <string name="btn_login">登录</string>
     <string name="btn_register">注册</string>
     <string name="toast_empty_input_login">用户名或密码为空</string>
+    <string name="toast_success_register">注册成功，正在处理信息</string>
 
     <!--    MainActivity Menu-->
     <string name="rg_clock_main">番茄</string>

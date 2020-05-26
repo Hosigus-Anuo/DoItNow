@@ -56,7 +56,7 @@ class SplashActivity : BaseViewModelActivity<SplashViewModel>() {
             finishSplash<MainActivity>()
         } else {
             // todo LoginActivity
-            finishSplash<MainActivity>()
+            finishSplash<LoginActivity>()
         }
     }
 

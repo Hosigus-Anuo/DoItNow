@@ -8,11 +8,10 @@ import com.google.gson.annotations.SerializedName
 data class User(
     @SerializedName("username")
     val userName: String = "",
-    val token: String = "",
-    @SerializedName("achievement")
-    val achievement: Achievement? = null,
     @SerializedName("selfdes")
     val autograph: String = "",
     @SerializedName("avatar")
-    val avatar: String = ""
+    val avatar: String = "",
+
+    val achievement: Achievement = Achievement()
 )

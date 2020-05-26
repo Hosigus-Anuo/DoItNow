@@ -1,20 +1,13 @@
 package com.cflower.lib_common.ui
 
-import android.app.Activity
 import android.app.ProgressDialog
-import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.LayoutRes
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
 import com.cflower.lib_common.utils.DToast
-import com.cflower.lib_common.utils.extensions.fillIntentArguments
 import com.cflower.lib_common.viewmodel.BaseViewModel
 import com.cflower.lib_common.viewmodel.event.ProgressDialogEvent
 
@@ -27,9 +20,12 @@ abstract class BaseViewModelFragment<T : BaseViewModel> : BaseFragment() {
 
     protected abstract val viewModelClass: Class<T>
 
+    protected open val viewModelStoreOwner: ViewModelStoreOwner get() = this
+
     private var progressDialog: ProgressDialog? = null
 
     private fun initProgressBar() = ProgressDialog(context).apply {
+        setCancelable(false)
         isIndeterminate = true
         setMessage("Loading...")
         setOnDismissListener { viewModel.onProgressDialogDismissed() }
@@ -40,9 +36,9 @@ abstract class BaseViewModelFragment<T : BaseViewModel> : BaseFragment() {
         super.onCreate(savedInstanceState)
         val viewModelFactory = getViewModelFactory()
         viewModel = if (viewModelFactory != null) {
-            ViewModelProvider(this, viewModelFactory).get(viewModelClass)
+            ViewModelProvider(viewModelStoreOwner, viewModelFactory).get(viewModelClass)
         } else {
-            ViewModelProvider(this).get(viewModelClass)
+            ViewModelProvider(viewModelStoreOwner).get(viewModelClass)
         }
         viewModel.apply {
             toastEvent.observe { str ->

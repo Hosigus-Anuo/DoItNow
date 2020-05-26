@@ -21,6 +21,7 @@ abstract class BaseViewModelActivity<T : BaseViewModel> : BaseActivity() {
     private var progressDialog: ProgressDialog? = null
 
     private fun initProgressBar() = ProgressDialog(this).apply {
+        setCancelable(false)
         isIndeterminate = true
         setMessage("Loading...")
         setOnDismissListener { viewModel.onProgressDialogDismissed() }

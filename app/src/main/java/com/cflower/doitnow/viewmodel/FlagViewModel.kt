@@ -28,7 +28,13 @@ class FlagViewModel : BaseViewModel() {
 
     fun postFlag(flag: Flag) {
         ApiGenerator.getApiService(FlagService::class.java)
-            .createFlag()
+            .createFlag(
+                title = flag.title,
+                tag = flag.tag.ordinal,
+                type = flag.type.ordinal,
+                content = flag.content,
+                isPublic = flag.isPublic
+            )
             .lifecycleWrapperSubscribeWithProgress {
                 (postFlagStatus as MutableLiveData).postValue(true)
             }

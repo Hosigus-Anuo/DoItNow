@@ -1,6 +1,7 @@
 package com.cflower.doitnow.model.flag
 
 import com.cflower.doitnow.R
+import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -22,9 +23,10 @@ data class Flag(
     @SerializedName("content")
     val content: String = "",
     @SerializedName("username")
-    val owner: String = ""
-) {
+    val owner: String = "",
+    @Expose
     var type: Type = Type.TODAY
+) {
     val tag: Tag get() = Tag.values()[tagId]
 
     enum class Type(val describe: String) {

@@ -33,7 +33,10 @@ abstract class BaseRVAdapter<D> : RecyclerView.Adapter<RecyclerView.ViewHolder>(
 
     open fun refresh(dataList: List<D> = emptyList()) {
         datas.clear()
-        appendData(dataList)
+        notifyDataSetChanged()
+        if (dataList.isNotEmpty()) {
+            datas.addAll(dataList)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

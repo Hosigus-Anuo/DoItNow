@@ -115,6 +115,7 @@
         android:textSize="17sp" />
 
     <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_content_today"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginStart="10dp"

@@ -30,10 +30,15 @@ class FlagFragment : BaseViewModelFragment<FlagViewModel>() {
         viewModel.flags.observeNotNull {
             it.habit.forEach { f -> f.type = Flag.Type.HABIT }
             it.target.forEach { f -> f.type = Flag.Type.TARGET }
-            mAdapter.appendData(it.today)
+            mAdapter.refresh(it.today)
             mAdapter.appendData(it.habit)
             mAdapter.appendData(it.target)
         }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
 
         viewModel.loadFlagList()
     }
@@ -49,10 +54,10 @@ class FlagFragment : BaseViewModelFragment<FlagViewModel>() {
             }
         }
         fab_today_flag.setOnClickListener {
-            startActivity<TodayActivity>(true)
+            startActivity<TodayActivity>()
         }
         fab_habit_flag.setOnClickListener {
-            startActivity<HabitActivity>(true)
+            startActivity<HabitActivity>()
         }
         fab_target_flag.setOnClickListener {
             viewModel.showError()

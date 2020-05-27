@@ -21,5 +21,15 @@ interface FlagService {
     @POST("goal/create")
     @FormUrlEncoded
     fun createFlag(
+        @Field("goalname")
+        title: String,
+        @Field("colortag")
+        tag: Int,
+        @Field("typetag")
+        type: Int,
+        @Field("content")
+        content: String,
+        @Field("ispublic")
+        isPublic: Boolean
     ): Observable<ModelWrapper<Any>>
 }

@@ -1,9 +1,10 @@
 package com.cflower.doitnow.ui.activity
 
 import android.os.Bundle
+import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.cflower.doitnow.R
-import com.cflower.doitnow.ui.adapter.MainViewPagerAdapter
+import com.cflower.doitnow.ui.adapter.SimpleFragmentAdapter
 import com.cflower.doitnow.ui.fragment.FlagFragment
 import com.cflower.doitnow.ui.fragment.MineFragment
 import com.cflower.doitnow.ui.fragment.SquareFragment
@@ -13,9 +14,16 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
     override val resId: Int = R.layout.activity_main
+    private lateinit var pageAdapter: FragmentPagerAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(resId)
+        common_toolbar.initWithSplitLine(
+            resources.getString(R.string.rg_clock_main),
+            listener = null,
+            titleOnLeft = false
+        )
+
         setFragment()
         setEvent()
     }
@@ -25,8 +33,18 @@ class MainActivity : BaseActivity() {
         val fmSquare = SquareFragment()
         val fmChat = FlagFragment()
         val fmMine = MineFragment()
-        val list = listOf(fmTarget, fmSquare, fmChat, fmMine)
-        vp_main.adapter = MainViewPagerAdapter(list, supportFragmentManager)
+
+        pageAdapter = SimpleFragmentAdapter(
+            listOf(
+                getString(R.string.rg_clock_main),
+                getString(R.string.rb_square_main),
+                getString(R.string.rb_flag_main),
+                getString(R.string.rg_mine_main)
+            ),
+            listOf(fmTarget, fmSquare, fmChat, fmMine),
+            supportFragmentManager
+        )
+        vp_main.adapter = pageAdapter
     }
 
     private fun setEvent() {
@@ -38,7 +56,7 @@ class MainActivity : BaseActivity() {
                 R.id.rg_mine_main -> vp_main.currentItem = 3
             }
         }
-        vp_main.setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        vp_main.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
@@ -46,8 +64,10 @@ class MainActivity : BaseActivity() {
             ) {
             }
 
-            override fun onPageSelected(position: Int) =
+            override fun onPageSelected(position: Int) {
                 rg_menu_main.check(rg_menu_main.getChildAt(position).id)
+                common_toolbar.title = pageAdapter.getPageTitle(position)
+            }
 
             override fun onPageScrollStateChanged(state: Int) {
             }

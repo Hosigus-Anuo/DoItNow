@@ -7,7 +7,6 @@ import android.graphics.Paint
 import android.os.Build
 import android.util.AttributeSet
 import android.widget.TextView
-import androidx.appcompat.widget.ResourceManagerInternal
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.cflower.lib_common.R
@@ -69,13 +68,7 @@ class DToolbar @JvmOverloads constructor(
         return null
     }
 
-    override fun onLayout(
-        changed: Boolean,
-        l: Int,
-        t: Int,
-        r: Int,
-        b: Int
-    ) {
+    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         super.onLayout(changed, l, t, r, b)
         reLayoutTitle(mTitleTextView)
         reLayoutTitle(mSubtitleTextView)

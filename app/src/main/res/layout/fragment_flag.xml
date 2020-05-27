@@ -100,7 +100,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="65dp"
+            android:layout_marginBottom="20dp"
             android:backgroundTint="@color/colorBackground"
             android:src="@drawable/add_float"
             app:fabSize="normal"

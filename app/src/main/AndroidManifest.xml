@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.PasswordActivity"></activity>
+        <activity android:name=".ui.activity.PasswordActivity"/>
         <activity android:name=".ui.activity.AutoGraphActivity" />
         <activity android:name=".ui.activity.WorldActivity" />
         <activity android:name=".ui.activity.HabitActivity" />

@@ -8,4 +8,8 @@ class MainViewPagerAdapter(var fmList:List<Fragment>,fm:FragmentManager):Fragmen
     override fun getCount(): Int = fmList.size
 
     override fun getItem(position: Int): Fragment =fmList[position]
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        return super.getPageTitle(position)
+    }
 }

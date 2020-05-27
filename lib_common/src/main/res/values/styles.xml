@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="DToolbar.Title" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" tools:ignore="ResourceName">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

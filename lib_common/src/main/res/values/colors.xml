@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="colorPrimary" tools:ignore="ResourceName">#ffffff</color>
+    <color name="colorPrimary" tools:ignore="ResourceName">#ff4b55</color>
     <color name="colorPrimaryDark" tools:ignore="ResourceName">#00000000</color>
-    <color name="colorAccent" tools:ignore="ResourceName">#788EFA</color>
+    <color name="colorAccent" tools:ignore="ResourceName">#ffffff</color>
 
     <!--    整体灰色背景-->
     <color name="windowBackground" tools:ignore="ResourceName">#F2F3F8</color>
@@ -11,7 +11,7 @@
     <color name="chosenBackground" tools:ignore="ResourceName">#E5EAF2</color>
 
     <!--    纯白色背景和纯白色字体-->
-    <color name="whiteBackground" tools:ignore="ResourceName">#ffffff</color>
+    <color name="whiteBackground" tools:ignore="ResourceName">#ff4b55</color>
     <color name="whiteFontColor" tools:ignore="ResourceName">#ffffff</color>
 
     <color name="transparentBackground" tools:ignore="ResourceName">#00000000</color>
@@ -20,7 +20,7 @@
     <!--    一级字体颜色-->
     <color name="levelOneFontColor" tools:ignore="ResourceName">#112C54</color>
     <!--    二级字体颜色-->
-    <color name="levelTwoFontColor" tools:ignore="ResourceName">#15315B</color>
+    <color name="levelTwoFontColor" tools:ignore="ResourceName">#ffffff</color>
     <!--    三级字体颜色-->
     <color name="levelThreeFontColor" tools:ignore="ResourceName">#193866</color>
     <!--    四级字体颜色-->

@@ -118,7 +118,7 @@
             android:textSize="17sp" />
 
         <TextView
-            android:id="@+id/tv_excise_tag_habit"
+            android:id="@+id/tv_exercise_tag_habit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"

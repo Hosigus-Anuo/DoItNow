@@ -18,12 +18,6 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        common_toolbar.initWithSplitLine(
-            resources.getString(R.string.rg_clock_main),
-            listener = null,
-            titleOnLeft = false
-        )
-
         setFragment()
         setEvent()
     }
@@ -66,7 +60,6 @@ class MainActivity : BaseActivity() {
 
             override fun onPageSelected(position: Int) {
                 rg_menu_main.check(rg_menu_main.getChildAt(position).id)
-                common_toolbar.title = pageAdapter.getPageTitle(position)
             }
 
             override fun onPageScrollStateChanged(state: Int) {

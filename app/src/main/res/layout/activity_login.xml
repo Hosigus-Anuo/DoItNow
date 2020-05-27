@@ -9,12 +9,13 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_account"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
+        android:scaleType="centerCrop"
         android:layout_marginBottom="15dp"
         android:background="@color/colorBackground"
-        android:src="@drawable/icon_pocket"
+        android:src="@drawable/login_icon"
         app:layout_constraintBottom_toTopOf="@id/cv_account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

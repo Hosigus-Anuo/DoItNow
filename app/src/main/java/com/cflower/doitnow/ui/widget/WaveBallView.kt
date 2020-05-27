@@ -41,12 +41,12 @@ class WaveBallView @JvmOverloads constructor(
 
     init {
         mWavePaint.apply {
-            color = Color.argb(168, 255, 182, 193)
+            color = Color.argb(168, 255, 75, 85)
             isFilterBitmap = true
         }
         edgePaint.apply {
             strokeWidth = 1f
-            color = Color.argb(255, 255, 182, 193)
+            color = Color.argb(255, 255, 75, 85)
             style = Paint.Style.STROKE
         }
 

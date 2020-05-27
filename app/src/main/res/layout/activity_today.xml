@@ -4,32 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-<!--    <RelativeLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:background="@color/colorBackground">-->
-
-<!--        <androidx.appcompat.widget.AppCompatImageView-->
-<!--            android:id="@+id/img_back_today"-->
-<!--            android:layout_width="32dp"-->
-<!--            android:layout_height="32dp"-->
-<!--            android:layout_alignParentStart="true"-->
-<!--            android:layout_centerVertical="true"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:scaleType="centerCrop"-->
-<!--            android:src="@drawable/back_white" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/tv_title_today"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_centerInParent="true"-->
-<!--            android:text="@string/tv_title_today"-->
-<!--            android:textColor="@color/colorWhite"-->
-<!--            android:textSize="19sp"-->
-<!--            android:textStyle="bold" />-->
-
-<!--    </RelativeLayout>-->
 
     <include layout="@layout/common_toolbar" />
 
@@ -120,7 +94,7 @@
             android:textSize="17sp" />
 
         <TextView
-            android:id="@+id/tv_excise_tag_today"
+            android:id="@+id/tv_exercise_tag_today"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -143,49 +117,50 @@
     <androidx.appcompat.widget.AppCompatEditText
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="5dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
-        android:maxLines="20"
+        android:background="@drawable/bg_item_flag"
         android:maxEms="200"
-        android:background="@drawable/bg_item_flag"/>
+        android:maxLines="20" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp">
+
         <TextView
             android:id="@+id/tv_publish_today"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@id/s_publish_today"
-            android:layout_marginEnd="8dp"
             android:layout_centerVertical="true"
-            android:textSize="16sp"
-            android:text="@string/tv_publish_flag" />
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@id/s_publish_today"
+            android:text="@string/tv_publish_flag"
+            android:textSize="16sp" />
 
         <Switch
             android:id="@+id/s_publish_today"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:switchMinWidth="40dp"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"/>
+            android:switchMinWidth="40dp" />
     </RelativeLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_accomplish_today"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/bg_mine_sign_out"
+        android:gravity="center"
         android:text="@string/btn_accomplish_flag"
         android:textColor="@color/colorWhite"
-        android:textStyle="bold"
         android:textSize="16sp"
-        android:gravity="center"/>
+        android:textStyle="bold" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

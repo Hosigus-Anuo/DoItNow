@@ -1,19 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txt_main_target"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_clock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/rg_clock_main"
-        android:textColor="@color/colorBackground"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_center"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <com.cflower.doitnow.ui.widget.WaveBallView
+        android:id="@+id/wbv_time_clock"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toTopOf="@id/gl_clock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_event_clock"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:gravity="center"
+        android:paddingStart="10dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="5dp"
+        android:text="@string/tv_event_clock"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/wbv_time_clock"
+        app:layout_constraintStart_toStartOf="@id/wbv_time_clock"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_time_clock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:text="@string/tv_time_clock"
+        android:textColor="@color/colorText"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/wbv_time_clock" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_operate_clock"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/bg_item_flag"
+        android:gravity="center"
+        android:text="@string/btn_operate_clock"
+        app:layout_constraintBottom_toTopOf="@id/gl_start"
+        app:layout_constraintEnd_toStartOf="@id/gl_center" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_stop_clock"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_item_flag"
+        android:layout_marginStart="30dp"
+        android:gravity="center"
+        android:text="@string/btn_stop_clock"
+        app:layout_constraintBottom_toTopOf="@id/gl_start"
+        app:layout_constraintStart_toEndOf="@id/gl_center" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

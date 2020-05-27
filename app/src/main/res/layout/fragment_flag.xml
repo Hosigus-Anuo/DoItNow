@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/rl_tag_flag"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:background="@color/colorBackground">
 
@@ -23,13 +23,14 @@
             android:textStyle="bold"
             android:textColor="@color/colorWhite"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true" />
+            android:layout_alignParentTop="true" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_rank_flag"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
             android:scaleType="centerCrop"

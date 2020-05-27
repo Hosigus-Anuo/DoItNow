@@ -1,12 +1,10 @@
 package com.cflower.doitnow.ui.activity
 
-import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import com.cflower.doitnow.R
-import com.cflower.lib_common.BaseApp.Companion.context
 import com.cflower.lib_common.ui.BaseActivity
 import kotlinx.android.synthetic.main.activity_world.*
-
 
 class WorldActivity : BaseActivity() {
     override val resId: Int get() = R.layout.activity_world
@@ -14,22 +12,24 @@ class WorldActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(resId)
+        common_toolbar.initWithSplitLine("我的世界",false,R.drawable.back_white, View.OnClickListener {
+            startActivity<MainActivity>()
+        },false)
         setEvent()
     }
 
     private fun setEvent() {
-        img_back_world.setOnClickListener {
-            val intent = Intent(context, MainActivity::class.java)
-            startActivity(intent)
-        }
-        rl_change_autograph.setOnClickListener{
-            val intent = Intent(context,AutoGraphActivity::class.java)
-            startActivity(intent)
+        rl_change_autograph.setOnClickListener {
+            startActivity<AutoGraphActivity>()
         }
         rl_change_password.setOnClickListener {
-            val intent = Intent(context,PasswordActivity::class.java)
-            startActivity(intent)
+            startActivity<PasswordActivity>()
+        }
+        rl_change_avatar.setOnClickListener {
+
         }
 
     }
+
+
 }

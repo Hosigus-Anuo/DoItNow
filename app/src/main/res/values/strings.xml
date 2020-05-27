@@ -3,6 +3,7 @@
 
     <!--    SplashActivity-->
     <string name="btn_splash_skip">跳过 3</string>
+    <string name="tv_splash">DO IT NOW</string>
 
     <!--    LoginActivity-->
     <string name="edt_name_login">用户名</string>
@@ -50,6 +51,8 @@
     <string name="btn_two_clock">50min</string>
     <string name="btn_three_clock">75min</string>
     <string name="btn_operate_clock">开始</string>
+    <string name="btn_stop_clock">停止</string>
+    <string name="toast_end_time">学习任务已关闭</string>
 
     <!--    FlagFragment-->
     <string name="tv_name_flag">DO IT NOW</string>

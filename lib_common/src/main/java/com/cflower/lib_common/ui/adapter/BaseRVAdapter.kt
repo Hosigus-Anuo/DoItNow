@@ -26,12 +26,12 @@ abstract class BaseRVAdapter<D> : RecyclerView.Adapter<RecyclerView.ViewHolder>(
         return datas[position]
     }
 
-    fun appendData(dataList: List<D>) {
+    open fun appendData(dataList: List<D>) {
         datas.addAll(dataList)
         notifyItemRangeInserted(datas.size, dataList.size)
     }
 
-    fun refresh(dataList: List<D> = emptyList()) {
+    open fun refresh(dataList: List<D> = emptyList()) {
         datas.clear()
         appendData(dataList)
     }
@@ -73,7 +73,7 @@ abstract class BaseRVAdapter<D> : RecyclerView.Adapter<RecyclerView.ViewHolder>(
 
     companion object {
         private const val NORMAL = 0x0
-        private const val FOOTER = 0x1
+        private const val FOOTER = -0x1000
     }
 
 }

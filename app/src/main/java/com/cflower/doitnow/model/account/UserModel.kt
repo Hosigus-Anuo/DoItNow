@@ -54,7 +54,7 @@ class UserModel {
 
     fun login(name: String, pwd: String) {
         user = user.copy(userName = name)
-        tempToken = Token(0, Base64.encodeToString("$name:$pwd".toByteArray(), Base64.NO_WRAP))
+        token = Token(1, Base64.encodeToString("$name:$pwd".toByteArray(), Base64.NO_WRAP))
     }
 
     fun updateToken(token: Token) {

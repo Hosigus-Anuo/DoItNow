@@ -77,7 +77,11 @@ open class BaseViewModel : ViewModel() {
     ){
         progressDialogEvent.postValue(ProgressDialogEvent.SHOW_NONCANCELABLE_DIALOG_EVENT)
         setSchedulers()
-            .defaultErrorHandler()
+            .doOnError {
+                toastEvent.postValue(R.string.common_default_rx_error)
+                progressDialogEvent.postValue(ProgressDialogEvent.DISMISS_DIALOG_EVENT)
+                it.printStackTrace()
+            }
             .doOnComplete {
                 progressDialogEvent.postValue(ProgressDialogEvent.DISMISS_DIALOG_EVENT)
             }

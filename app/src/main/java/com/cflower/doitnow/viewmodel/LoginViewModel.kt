@@ -47,7 +47,7 @@ class LoginViewModel : BaseViewModel() {
                     if (token == null) {
                         toastEvent.postValue(com.cflower.lib_common.R.string.common_default_server_error)
                     } else {
-                        userModel.updateToken(token)
+//                        userModel.updateToken(token)
                         return@flatMap ApiGenerator.getApiService(AccountService::class.java)
                             .getUser(name)
                     }

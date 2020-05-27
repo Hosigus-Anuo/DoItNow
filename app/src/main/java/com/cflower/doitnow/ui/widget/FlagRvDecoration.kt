@@ -22,7 +22,7 @@ import kotlin.math.max
 class FlagRvDecoration(context: Context, private val adapter: FlagRvAdapter) :
     RecyclerView.ItemDecoration() {
 
-    private val mOffset: Int = context.dp2px(24f)
+    private val mOffset: Int = context.dp2px(48f)
     private val mTextSize: Float = context.sp2px(16f).toFloat()
     private val mPaint: Paint
 
@@ -70,7 +70,7 @@ class FlagRvDecoration(context: Context, private val adapter: FlagRvAdapter) :
 
     private val decorationRect = Rect()
     private fun drawDecoration(left: Int, top: Int, right: Int,bottom : Int, c: Canvas, curType: Int) {
-        val decoration = Flag.Type.values()[curType].descripe
+        val decoration = Flag.Type.values()[curType].describe
         mPaint.getTextBounds(decoration, 0, decoration.length, decorationRect)
         val fontMetrics = mPaint.fontMetricsInt
         val x = (left + right - decorationRect.width()) / 2f

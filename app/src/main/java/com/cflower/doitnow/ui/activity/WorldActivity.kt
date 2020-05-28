@@ -1,7 +1,6 @@
 package com.cflower.doitnow.ui.activity
 
 import android.os.Bundle
-import android.view.View
 import com.cflower.doitnow.R
 import com.cflower.lib_common.ui.BaseActivity
 import kotlinx.android.synthetic.main.activity_world.*
@@ -12,9 +11,7 @@ class WorldActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(resId)
-        common_toolbar.initWithSplitLine("我的世界",false,R.drawable.back_white, View.OnClickListener {
-            startActivity<MainActivity>()
-        },false)
+        common_toolbar.initWithSplitLine("我的世界", false, R.drawable.back_white, titleOnLeft = false)
         setEvent()
     }
 

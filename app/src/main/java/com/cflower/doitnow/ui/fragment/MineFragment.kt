@@ -21,7 +21,7 @@ class MineFragment : BaseViewModelFragment<MineViewModel>() {
 
     private fun setEvent(){
         cl_world_mine.setOnClickListener {
-            startActivity<WorldActivity>(true)
+            startActivity<WorldActivity>()
         }
         cl_achievement_mine.setOnClickListener {
             viewModel.showError()
@@ -35,7 +35,7 @@ class MineFragment : BaseViewModelFragment<MineViewModel>() {
 
         btn_sign_out_mine.setOnClickListener {
             App.userModel.logout()
-            startActivity<LoginActivity>(true)
+            startActivity<LoginActivity>()
         }
     }
 
